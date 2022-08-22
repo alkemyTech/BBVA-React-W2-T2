@@ -20,7 +20,7 @@ const Put = (url, body) =>{
     
         axios.put(final_url, body)
             .then(response => console.log(response))
-            .catch(error => console.log(error));   
+            .catch(error => console.log(error)); 
         
 }
 
