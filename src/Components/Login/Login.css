@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+/* Estilos para los contenedores principales */
+.contenedor {
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.contenido {
+    margin-left: 142px;
+}
+
+.titulo {
+    margin-top: 30px;
+}
+
+.formulario {
+    min-width: 550px;
+    margin-top: 50px;
+    padding: 20px;
+
+}
+
+.redirect-register {
+    display: inline-flex;
+    justify-content: center;
+    margin-left: 140px;
+    margin-top: 150px;
+
+
+}
+
+.redirect-register h4 {
+    margin-right: 10px;
+}
+
+.redirect-register h3 {
+    color: #FF0000;
+}
+
+.ruta {
+    text-decoration: none;
+}
+
+
+
+.formulario input,
+.formulario textarea {
+    font-family: 'Open Sans', sans-serif;
+    width: 80%;
+    border-radius: 5px;
+    border: 2px solid #e2e2e2;
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 15px;
+    color: #1f1f1f;
+}
+
+.formulario input:focus {
+    outline: none;
+    border: 2px solid #0085FF;
+}
+
+.formulario .error {
+    color: #e92b2d;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.formulario button[type="submit"] {
+    display: block;
+    background: #FF0000;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+    cursor: pointer;
+    width: 84%;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    transition: .3s ease all;
+}
+
+.formulario button[type="submit"]:hover {
+    background: #3d0202;
+}
+
+.formulario .exito {
+    text-align: center;
+    font-size: 14px;
+    padding-top: 20px;
+    color: #09aaf5;
+}
+
+.formulario input[type="radio"] {
+    width: auto;
+}
+
+/* Estilos contenedor de imagen */
+
+.image-rigth-login {
+    width: 45vw;
+    height: 623px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
