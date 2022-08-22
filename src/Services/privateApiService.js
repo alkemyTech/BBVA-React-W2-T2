@@ -9,18 +9,16 @@ const config = {
 }
 
 const apiUrl = "https://ongapi.alkemy.org/api";
-let url = "";
 
-const Get = () => {
-    axios.get('https://jsonplaceholder.typicode.com/users', config)
-    .then(res => console.log(res))    
-    .catch(err => console.log(err))
-}
 
-const Delete = async (apiUrl) =>{
+
+
+const Delete = async (url, config) =>{
+
+    urlFinal = apiUrl + url
 
     try {
-        const response = await axios.delete(apiUrl, url, config);
+        const response = await axios.delete(urlFinal, config);
         return response;
     } catch (error) {
         return error
@@ -28,4 +26,6 @@ const Delete = async (apiUrl) =>{
 
 }
 
-export default { Get, Delete}
+
+
+export default { Delete}
