@@ -1,45 +1,45 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-import Imagen from '././login.png'
+import image from '././login.png'
 import "./Login.css";
 
 const Login = () => {
 
     // el useState para cambiar el estado del envio y mostrar mensaje de enviado con exito
-    const [formEnviado, setFormEnviado] = useState(false)
+    const [formSent, setformSent] = useState(false)
 
 
   return (
-    <div className="contenedor">
+    <div className="parent-container">
      
-      <div className="contenido">
+      <div className="contents">
                
       <Formik
       initialValues={{
           email: "",
           password: ""
         }}
-       validate= {(valor) => {
-          console.log(valor)
+       validate= {(worth) => {
+          console.log(worth)
           //Expresiones regulares para los campos de email y contraseña
-          let expresionRegularEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
-          let expresionRegularPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,15}[^'\s]/
+          let regexEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+          let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{6,15}[^'\s]/
 
           let errors = {};
           
             // validacion de correo si esta vacio el input o no tiene formato correcto
-          if (!valor.email) {
+          if (!worth.email) {
               errors.email = "*This field can not be blank"                
-          } else if (!expresionRegularEmail.test(valor.email)) {
+          } else if (!regexEmail.test(worth.email)) {
               errors.email = "Wrong mail";                
           }
 
             // validacion de password si esta vacio el input o no tiene formato correcto
             // ejemplo de contraseña Ai311Xbcu3r16--**
-          if (!valor.password) {
+          if (!worth.password) {
               errors.password = "*This field can not be blank"                
-          } else if (!expresionRegularPassword.test(valor.password)) {
+          } else if (!regexPassword.test(worth.password)) {
               errors.password = "Incorrect password";            
           }                    
 
@@ -48,17 +48,17 @@ const Login = () => {
          
         }}
 
-      onSubmit={(valor, {resetForm}) =>{
+      onSubmit={(worth, {resetForm}) =>{
           resetForm()
-          console.log(valor)        
-          setFormEnviado(true)
-          setTimeout( ()=> setFormEnviado(false), 3000)
+          console.log(worth)        
+          setformSent(true)
+          setTimeout( ()=> setformSent(false), 3000)
       }}
       
       >
       { ({errors}) => (
-          <Form className="formulario">
-          <div className="titulo">
+          <Form className="login-form">
+          <div className="title-header">
             <h3>Bienvenido</h3>
             <h1>Inicia sesión en tu cuenta!</h1>         
         </div>  
@@ -91,23 +91,23 @@ const Login = () => {
                             )} />                           
                                     
                       </div>  
-                      <button className="boton"  type="submit">Inicia sesión</button>  
+                      <button type="submit">Inicia sesión</button>  
                       
-                      {formEnviado && <p className="exito">Formulario Enviado</p> }             
+                      {formSent && <p className="success-login">Formulario Enviado</p> }             
               </div>          
           </Form> 
       )}
       </Formik>
       <div className="redirect-register">
             <h4>No tienes cuenta?</h4>
-        <Link className="ruta" to="/register">
+        <Link className="route-register" to="/register">
             <span><h3>Registrate</h3></span>       
         </Link>      
       </div>            
       </div>
 
-        <div className="imagen">
-             <img className="image-rigth-login" src={Imagen} alt="..." />
+        <div>
+             <img className="image-rigth-login" src={image} alt="..." />
         </div>
     </div>
   )

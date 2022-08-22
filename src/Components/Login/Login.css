@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
-/* Estilos para los contenedores principales */
-.contenedor {
+/* Estilos para los parent-containeres principales */
+.parent-container {
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -9,15 +9,15 @@
 
 }
 
-.contenido {
+.contents {
     margin-left: 142px;
 }
 
-.titulo {
+.title-header {
     margin-top: 30px;
 }
 
-.formulario {
+.login-form {
     min-width: 550px;
     margin-top: 50px;
     padding: 20px;
@@ -41,14 +41,14 @@
     color: #FF0000;
 }
 
-.ruta {
+.route-register {
     text-decoration: none;
 }
 
 
 
-.formulario input,
-.formulario textarea {
+.login-form input,
+.login-form textarea {
     font-family: 'Open Sans', sans-serif;
     width: 80%;
     border-radius: 5px;
@@ -59,18 +59,18 @@
     color: #1f1f1f;
 }
 
-.formulario input:focus {
+.login-form input:focus {
     outline: none;
     border: 2px solid #0085FF;
 }
 
-.formulario .error {
+.login-form .error {
     color: #e92b2d;
     font-weight: 600;
     font-size: 12px;
 }
 
-.formulario button[type="submit"] {
+.login-form button[type="submit"] {
     display: block;
     background: #FF0000;
     font-weight: 600;
@@ -85,22 +85,22 @@
     transition: .3s ease all;
 }
 
-.formulario button[type="submit"]:hover {
+.login-form button[type="submit"]:hover {
     background: #3d0202;
 }
 
-.formulario .exito {
+.login-form .success-login {
     text-align: center;
     font-size: 14px;
     padding-top: 20px;
-    color: #09aaf5;
+    color: #09f51d;
 }
 
-.formulario input[type="radio"] {
+.login-form input[type="radio"] {
     width: auto;
 }
 
-/* Estilos contenedor de imagen */
+/* Estilos parent-container de imagen */
 
 .image-rigth-login {
     width: 45vw;
