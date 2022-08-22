@@ -1,27 +1,35 @@
 import axios from 'axios';
 
-const api_url = "https://ongapi.alkemy.org/api/";
-
 const config = {
     headers: {
         Group: 54321                //Aqui va el ID del equipo!!
     }
 }
 
-const Get = () => {
-    axios.get('https://jsonplaceholder.typicode.com/users', config)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+const apiUrl = "https://ongapi.alkemy.org/api";
+
+
+const Delete = async (url) =>{
+
+    let urlFinal = apiUrl + url
+
+    try {
+        return await axios.delete(urlFinal, config);
+    } catch (error) {
+        return error
+    }
+
 }
 
-const Put = (url, body) =>{
+const Put = (url, body, config) =>{
 
-    let final_url = api_url + url;
+     let urlFinal = = apiUrl + url;
     
-        axios.put(final_url, body)
+        axios.put(urlFinal, body)
             .then(response => console.log(response))
             .catch(error => console.log(error)); 
         
 }
 
-export default {Get, Put}
+export default {Put, Delete}
+
