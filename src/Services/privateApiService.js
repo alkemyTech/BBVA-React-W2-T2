@@ -21,11 +21,11 @@ const Delete = async (url) =>{
 
 }
 
-const Put = (url, body, config) =>{
+const Put = (url, body) =>{
 
-     let urlFinal = = apiUrl + url;
+     let urlFinal = apiUrl + url;
     
-        axios.put(urlFinal, body)
+        axios.put(urlFinal, body, config)
             .then(response => console.log(response))
             .catch(error => console.log(error)); 
         
