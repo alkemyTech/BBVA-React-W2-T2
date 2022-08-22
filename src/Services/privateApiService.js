@@ -2,11 +2,10 @@ import axios from 'axios';
 
 const config = {
     headers: {
-        // Group: 01            //Aqui va el ID del equipo!!
+        Group: 54321           //Aqui va el ID del equipo!!
     }
 }
-const apiUrl= "https://ongapi.alkemy.org/api/";
-let url = "+";
+const apiUrl = "https://ongapi.alkemy.org/api/";
 
 function Get() {
     axios.get('https://jsonplaceholder.typicode.com/users', config)
@@ -14,13 +13,14 @@ function Get() {
         .catch(err => console.log(err));
 }
 
-const Post = async (apiUrl, body) =>{
-    try{
-        const response = await axios.post(apiUrl, url,body)
-        return response
-    } catch (error) {
-        return error
-    }
+const Post = (url, body) =>{
+    let urlFin = apiUrl + url;
+    axios
+    .get(urlFin, config, body)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
 };
 
+
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {Get, Post};
