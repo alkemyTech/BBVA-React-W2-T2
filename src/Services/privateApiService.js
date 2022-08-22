@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 const config = {
     headers: {
         Group: 54321                //Aqui va el ID del equipo!!
@@ -9,8 +7,6 @@ const config = {
 }
 
 const apiUrl = "https://ongapi.alkemy.org/api";
-
-
 
 
 const Delete = async (url) =>{
@@ -25,6 +21,15 @@ const Delete = async (url) =>{
 
 }
 
+const Put = (url, body, config) =>{
 
+     let urlFinal = = apiUrl + url;
+    
+        axios.put(urlFinal, body)
+            .then(response => console.log(response))
+            .catch(error => console.log(error)); 
+        
+}
 
-export default { Delete}
+export default {Put, Delete}
+
