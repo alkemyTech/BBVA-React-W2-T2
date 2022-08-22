@@ -15,11 +15,10 @@ const apiUrl = "https://ongapi.alkemy.org/api";
 
 const Delete = async (url, config) =>{
 
-    urlFinal = apiUrl + url
+    let urlFinal = apiUrl + url
 
     try {
-        const response = await axios.delete(urlFinal, config);
-        return response;
+        return await axios.delete(urlFinal, config);
     } catch (error) {
         return error
     }
