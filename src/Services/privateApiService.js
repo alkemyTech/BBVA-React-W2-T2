@@ -33,5 +33,6 @@ const Post = (url, body) =>{
     .get(urlFin, config, body)
     .then(res => console.log(res))
     .catch(err => console.log(err));
+ }
 
 export default {Put, Delete, Post}
