@@ -41,12 +41,13 @@ const Put = (url, body) =>{
 }
 
 const Post = (url, body) =>{
-    let urlFinal = apiUrl + url;
+    let urlFin = apiUrl + url;
     axios
     .get(urlFin, body, config)
     .then(res => console.log(res))
     .catch(err => console.log(err));
  }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default {Get, Put, Delete, Post}
 
