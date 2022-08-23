@@ -16,7 +16,16 @@ const Get = (url) => {
         .get(urlFinal, config)
         .then(res => console.log(res))
         .catch(err => console.log(err));
-    
 }
 
-export default Get
+const Post = (url, body) =>{
+    let urlFin = apiUrl + url;
+    axios
+    .get(urlFin, config, body)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+};
+
+
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {Get, Post}

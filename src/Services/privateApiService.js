@@ -5,7 +5,6 @@ const config = {
         Group: 54321                
     }
 }
-
 const apiUrl = "https://ongapi.alkemy.org/api";
 
 const Get = (url) => {
@@ -41,5 +40,13 @@ const Put = (url, body) =>{
         
 }
 
-export default {Get, Put, Delete}
+const Post = (url, body) =>{
+    let urlFinal = apiUrl + url;
+    axios
+    .get(urlFin, body, config)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+ }
+
+export default {Get, Put, Delete, Post}
 
