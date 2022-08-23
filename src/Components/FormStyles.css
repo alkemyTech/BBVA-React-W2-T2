@@ -27,3 +27,16 @@
     cursor: pointer;
     background-color: #3498DB;
 }
+
+.error{
+    color: #e92b2d;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.success{
+    text-align: center;
+	font-size: 14px;
+	padding-top: 10px;
+	color: #d60ce9;
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
@@ -14,6 +13,9 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 import Login from './Components/Login/Login';
+
+import RegisterForm from './Components/Auth/RegisterForm';
+
 
 function App() {
   return (
@@ -31,12 +33,16 @@ function App() {
           <Route path="/create-member" component={MembersForm} />
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
-          <Route path="/toys-campaign" component={ToysCampaign} />
+          <Route path="/toys-campaign" component={ToysCampaign} /> 
+
+          <Route path="/register-form" component={ RegisterForm } /> 
         </Switch>
       </BrowserRouter>
+    {/*
     <div className="App">
     
     </div>
+  */}
     </>
   );
 }
