@@ -14,6 +14,9 @@ import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
 
+import RegisterForm from './Components/Auth/RegisterForm';
+
+
 function App() {
   return (
     <>
@@ -29,9 +32,12 @@ function App() {
           <Route path="/create-member" component={MembersForm} />
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
-          <Route path="/toys-campaign" component={ToysCampaign} />
+          <Route path="/toys-campaign" component={ToysCampaign} /> 
+
+          <Route path="/register-form" component={ RegisterForm } /> 
         </Switch>
       </BrowserRouter>
+    {/*
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -79,6 +85,7 @@ function App() {
         </span>
       </header>
     </div>
+  */}
     </>
   );
 }
