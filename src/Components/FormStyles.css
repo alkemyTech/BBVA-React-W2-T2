@@ -33,3 +33,10 @@
     font-weight: 600;
     font-size: 12px;
 }
+
+.success{
+    text-align: center;
+	font-size: 14px;
+	padding-top: 10px;
+	color: #d60ce9;
+}

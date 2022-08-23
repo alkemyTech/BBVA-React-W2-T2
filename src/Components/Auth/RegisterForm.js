@@ -1,11 +1,12 @@
 import { Formik, Form, Field } from 'formik';
+import { useState } from 'react';
 
 import '../FormStyles.css';
 
-function RegisterForm () {
+function RegisterForm () {    
+    
+    const [formSubmited, setFormSubmited] = useState(false);
 
-    
-    
     let backupFormData; // variable auxiliar para almacenar el objeto con los inputs validados. No me funciono con el useState en initialValues   
     const initialValues = {
         name: '',
@@ -67,9 +68,10 @@ function RegisterForm () {
 
                 onSubmit={(values, {resetForm}) => {
                     backupFormData = {...values};      
-                    console.log(backupFormData);                           
-                    console.log('Formulario enviado');
-                    resetForm();                    
+                    console.log(backupFormData);
+                    resetForm();                            
+                    setFormSubmited(true);
+                    setTimeout(() => setFormSubmited(false), 3000);                                       
                 }}
             >
                 {( {errors, touched} ) => (
@@ -90,6 +92,8 @@ function RegisterForm () {
                         {touched.confirmPassword && errors.confirmPassword && <div className="error">{ errors.confirmPassword }</div>}
                         
                         <button className="submit-btn" type="submit">Register</button>
+
+                        {formSubmited && <p className="success">Formulario enviado exitosamente!</p>}
                     </Form>
                 )}                
             </Formik>            
