@@ -12,6 +12,10 @@ import SchoolCampaign from './Campaigns/School/SchoolCampaign';
 import ToysCampaign from './Campaigns/Toys/ToysCampaign';
 import MembersForm from './Components/Members/MembersForm';
 import ProjectsForm from './Components/Projects/ProjectsForm';
+import Login from './Components/Login/Login';
+
+import RegisterForm from './Components/Auth/RegisterForm';
+
 
 function App() {
   return (
@@ -19,6 +23,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
+          <Route path="/login" component={Login} />
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
           <Route path="/news" component={NewsForm} />
@@ -29,12 +34,15 @@ function App() {
           <Route path="/create-member" component={MembersForm} />
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
-          <Route path="/toys-campaign" component={ToysCampaign} />
+          <Route path="/toys-campaign" component={ToysCampaign} /> 
+
+          <Route path="/register-form" component={ RegisterForm } /> 
         </Switch>
       </BrowserRouter>
+    {/*
     <div className="App">
-     
     </div>
+  */}
     </>
   );
 }
