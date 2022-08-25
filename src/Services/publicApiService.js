@@ -12,16 +12,15 @@ const Get = (url) => {
 
     let urlFinal = apiUrl + url;
 
-    axios
-        .get(urlFinal, config)
+    axios.get(urlFinal)
         .then(res => console.log(res))
         .catch(err => console.log(err));
 }
 
 const Post = (url, body) =>{
-    let urlFin = apiUrl + url;
-    axios
-    .get(urlFin, config, body)
+    let urlFinal = apiUrl + url;
+    
+    axios.post(urlFinal, body)
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };

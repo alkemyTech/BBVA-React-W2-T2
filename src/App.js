@@ -28,20 +28,12 @@ function App() {
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
           <Route path="/news" component={NewsForm} />
-<<<<<<< HEAD
-          <Route path="news/:id" component={NewsForm}/>
-=======
           <Route path="/news/:id" component={NewsForm}/>
->>>>>>> 8113d4ccf4249dfbd34493dc8ecb9017d4d705f4
           <Route path="/backoffice/create-slide" component={SlidesForm} />
           <Route path="/create-testimonials" component={TestimonialForm} />
           <Route path="/create-user" component={UserForm} />
           <Route path="/create-member" component={MembersForm} />
-<<<<<<< HEAD
           <Route path="/backoffice/members/edit" component={MembersForm} />
-=======
-          <Route path="/backoffice/members/edit/" component={MembersForm} />
->>>>>>> bc7a0dec186ea41e59abf76ef89b2fcf9a2e6025
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} /> 
