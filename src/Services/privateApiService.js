@@ -10,8 +10,7 @@ const apiUrl = "https://ongapi.alkemy.org/api/";
 const Get = (url) => {
 
     let urlFinal = apiUrl + url;
-   console.log('aqui',urlFinal)
-    axios.get(urlFinal, config)
+    axios.get(urlFinal)
         .then(res => console.log(res))
         .catch(err => console.log(err));
     
@@ -22,7 +21,7 @@ const Delete = async (url) =>{
     let urlFinal = apiUrl + url
 
     try {
-        return await axios.delete(urlFinal, config);
+        return await axios.delete(urlFinal);
     } catch (error) {
         return error
     }
@@ -33,7 +32,7 @@ const Put = (url, body) =>{
 
      let urlFinal = apiUrl + url;
     
-        axios.put(urlFinal, body, config)
+        axios.put(urlFinal, body)
             .then(response => console.log(response))
             .catch(error => console.log(error)); 
         
@@ -42,7 +41,7 @@ const Put = (url, body) =>{
 const Post = (url, body) =>{
     let urlFinal = apiUrl + url;
     axios
-    .get(urlFinal, body, config)
+    .get(urlFinal, body)
     .then(res => console.log(res))
     .catch(err => console.log(err));
  }

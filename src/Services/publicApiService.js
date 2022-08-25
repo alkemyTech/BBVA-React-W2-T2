@@ -13,7 +13,7 @@ const Get = (url) => {
     let urlFinal = apiUrl + url;
 
     axios
-        .get(urlFinal, config)
+        .get(urlFinal)
         .then(res => console.log(res))
         .catch(err => console.log(err));
 }
@@ -21,7 +21,7 @@ const Get = (url) => {
 const Post = (url, body) =>{
     let urlFinal = apiUrl + url;
     axios
-    .get(urlFinal, config, body)
+    .get(urlFinal, body)
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };
