@@ -5,15 +5,13 @@ const config = {
         Group: 54321                
     }
 }
-
-const apiUrl = "https://ongapi.alkemy.org/api";
+const apiUrl = "https://ongapi.alkemy.org/api/";
 
 const Get = (url) => {
 
     let urlFinal = apiUrl + url;
-
-    axios
-        .get(urlFinal, config)
+   console.log('aqui',urlFinal)
+    axios.get(urlFinal, config)
         .then(res => console.log(res))
         .catch(err => console.log(err));
     
@@ -41,5 +39,13 @@ const Put = (url, body) =>{
         
 }
 
-export default {Get, Put, Delete}
+const Post = (url, body) =>{
+    let urlFinal = apiUrl + url;
+    axios
+    .get(urlFinal, body, config)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+ }
+
+export default {Get, Put, Delete, Post}
 

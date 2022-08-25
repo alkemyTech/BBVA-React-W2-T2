@@ -1,0 +1,24 @@
+.container-about {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about-title {
+    text-align: center;
+    font-size: 50px;
+}
+
+.main-text {
+    text-align: justify;
+    text-indent: 15px;
+    margin: 105px 70px 25px 70px;
+}
+
+
+
+.container-image-about img {
+    width: 540px;
+    height: 384px;
+    margin: 40px;
+    border-radius: 15px;
+}
