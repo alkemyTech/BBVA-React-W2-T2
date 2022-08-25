@@ -6,22 +6,21 @@ const config = {
     }
 }
 
-const apiUrl = "https://ongapi.alkemy.org/api/";
+const apiUrl = "https://ongapi.alkemy.org/api";
 
 const Get = (url) => {
 
     let urlFinal = apiUrl + url;
 
-    axios
-        .get(urlFinal)
+    axios.get(urlFinal)
         .then(res => console.log(res))
         .catch(err => console.log(err));
 }
 
 const Post = (url, body) =>{
     let urlFinal = apiUrl + url;
-    axios
-    .get(urlFinal, body)
+    
+    axios.post(urlFinal, body)
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };
