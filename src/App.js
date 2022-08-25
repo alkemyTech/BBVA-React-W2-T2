@@ -28,7 +28,11 @@ function App() {
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
           <Route path="/news" component={NewsForm} />
+<<<<<<< HEAD
           <Route path="news/:id" component={NewsForm}/>
+=======
+          <Route path="/news/:id" component={NewsForm}/>
+>>>>>>> 8113d4ccf4249dfbd34493dc8ecb9017d4d705f4
           <Route path="/backoffice/create-slide" component={SlidesForm} />
           <Route path="/create-testimonials" component={TestimonialForm} />
           <Route path="/create-user" component={UserForm} />
