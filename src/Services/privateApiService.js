@@ -43,7 +43,7 @@ const Put = (url, body) =>{
 const Post = (url, body) =>{
     let urlFinal = apiUrl + url;
     axios
-    .get(urlFin, body, config)
+    .get(urlFinal, body, config)
     .then(res => console.log(res))
     .catch(err => console.log(err));
  }

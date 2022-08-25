@@ -6,7 +6,7 @@ const config = {
     }
 }
 
-const apiUrl = "https://ongapi.alkemy.org/api";
+const apiUrl = "https://ongapi.alkemy.org/api/";
 
 const Get = (url) => {
 
@@ -19,9 +19,9 @@ const Get = (url) => {
 }
 
 const Post = (url, body) =>{
-    let urlFin = apiUrl + url;
+    let urlFinal = apiUrl + url;
     axios
-    .get(urlFin, config, body)
+    .get(urlFinal, config, body)
     .then(res => console.log(res))
     .catch(err => console.log(err));
 };

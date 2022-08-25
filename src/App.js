@@ -25,7 +25,7 @@ function App() {
         <Switch>
           {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
           <Route path="/login" component={Login} />
-          <Route path="/nosotros" component={About } /> 
+          <Route path="/us" component={About } /> 
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/create-category" component={CategoriesForm} />
           <Route path="/news" component={NewsForm} />
