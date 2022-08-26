@@ -5,7 +5,7 @@ const config = {
         Group: 54321                
     }
 }
-const apiUrl = "https://ongapi.alkemy.org/api";
+const apiUrl = "https://ongapi.alkemy.org/api/";
 
 const Get = (url) => {
     let urlFinal = apiUrl + url;
