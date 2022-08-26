@@ -35,10 +35,9 @@ const NewsForm = () => {
         }
         //obteniendo las categorias desde el endpoint
         const endPoint = 'categories'
-        await  apiPrivate.Get(endPoint)
-        .then( (res) =>{                      
-            setCategories(res.data.data)
-        })       
+       let categoryArray =  await apiPrivate.Get(endPoint)
+       setCategories(categoryArray)
+             
     }
 
     useEffect(() => {       
