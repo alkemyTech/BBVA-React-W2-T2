@@ -36,7 +36,16 @@
 
 .success{
     text-align: center;
-	font-size: 14px;
-	padding-top: 10px;
-	color: #d60ce9;
+	font-size: 16px;
+	padding-top: 8px;
+	color: #317715;
+}
+
+.myImg{    
+    width: 200px;
+}
+
+.image-scr{
+    color: rgb(13, 3, 95);
+    font-size: 14px;
 }
