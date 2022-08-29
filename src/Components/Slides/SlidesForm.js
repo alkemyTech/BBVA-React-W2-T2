@@ -8,8 +8,8 @@ import '../FormStyles.css';
 
 function SlidesForm () {
 
-    //let { id } = useParams();
-    let id = 1413; // para probar la edicion de formulario
+    let { id } = useParams();
+    //let id = 1413; // para probar la edicion de formulario
     const [formSubmited, setFormSubmited] = useState(false);
     const [errors, setErrors] = useState({});
     const [initialValues, setInitialValues] = useState({
@@ -19,24 +19,27 @@ function SlidesForm () {
         order: '' // es auto-incremental
     })               
     
-    useEffect(async () =>{
-        let slideData = '';
-        
-        if(id){ // si llega un id, busca ese slide para modificarlo, mostrando los valores iniciales con la data del slide
-            slideData = await apiPrivate.Get(`slides/${id}`);
-            setInitialValues({...initialValues, 
-                                name: slideData.name, 
-                                description: slideData.description,
-                                image: slideData.image,                               
-                                order: slideData.order});
-        }else{ // si no hay id, se crea un slide desde 0, pero se recupera el ultimo numero de order cargado, para setear el nuevo al valor siguiente
-            slideData = await apiPrivate.Get('slides');
-            if(slideData.length > 0){
-                let final = slideData.length - 1; // busco la ultima posicion del array
-                let lastOrder = slideData[final].order; // accedo al ultimo order en el array
-                setInitialValues({...initialValues, order: ++lastOrder}); // seteo el nuevo order al valor siguiente
+    useEffect( () =>{ 
+        const getData = async() =>{       
+            let slideData = '';
+            
+            if(id){ // si llega un id, busca ese slide para modificarlo, mostrando los valores iniciales con la data del slide
+                slideData = await apiPrivate.Get(`slides/${id}`);
+                setInitialValues({...initialValues, 
+                                    name: slideData.name, 
+                                    description: slideData.description,
+                                    image: slideData.image,                               
+                                    order: slideData.order});
+            }else{ // si no hay id, se crea un slide desde 0, pero se recupera el ultimo numero de order cargado, para setear el nuevo al valor siguiente
+                slideData = await apiPrivate.Get('slides');
+                if(slideData.length > 0){
+                    let final = slideData.length - 1; // busco la ultima posicion del array
+                    let lastOrder = slideData[final].order; // accedo al ultimo order en el array
+                    setInitialValues({...initialValues, order: ++lastOrder}); // seteo el nuevo order al valor siguiente
+                }
             }
-        }
+    }
+    getData();
     }, []);
          
     
