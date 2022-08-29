@@ -15,12 +15,14 @@ import ProjectsForm from './Components/Projects/ProjectsForm';
 import About from './Components/About/About'
 import Login from './Components/Login/Login';
 import RegisterForm from './Components/Auth/RegisterForm';
+import Header from './Components/Header/Header';
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Header />
         <Switch>
           {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
           <Route path="/login" component={Login} />

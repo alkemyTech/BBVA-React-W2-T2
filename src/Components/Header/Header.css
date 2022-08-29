@@ -1,0 +1,135 @@
+/* Estilos generales del contenedor header */
+.header-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* estilos generales del contenedor del logo */
+.container-logo {
+    width: 30%;
+}
+
+/* Contenedor de botones */
+
+.container-buttons {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+}
+
+
+
+/* estilos globales de las lista de link */
+.container-list {
+    width: 60%;
+    display: flex;
+    justify-content: end;
+}
+
+.list-container {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.list-container>.list-container {
+    padding-right: calc(0.6em + 0.25vw);
+    font-size: calc(0.7em + 0.4vw);
+    text-decoration: none;
+    margin-right: 0.475em;
+}
+
+.link-public:link,
+.link-public:visited,
+.link-public:active {
+    text-decoration: none;
+    color: #24252a;
+    font-size: 17px;
+}
+
+.link-public:hover {
+    color: black;
+    font-weight: bold;
+}
+
+
+/* Logo del header */
+.logo-header {
+    padding-left: 2em;
+}
+
+.container-figures {
+    display: flex;
+}
+
+.triangle-logo {
+    height: 0;
+    width: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 27px solid #ff0000;
+}
+
+.square-logo {
+    width: 27.79px;
+    height: 27.79px;
+    background: #faff00;
+}
+
+.circle-logo {
+    width: 27.79px;
+    height: 27.79px;
+    border-radius: 50%;
+    background: #0038ff;
+}
+
+/* letras del logo */
+.name-logo {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.list-container>.list-container:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* estilos de los botones  */
+.button-login,
+.button-register {
+    height: 30px;
+    width: 85px;
+    text-transform: capitalize;
+    border-radius: 20px;
+    margin-right: 10px;
+    right: -5%;
+}
+
+.button-login {
+    background-color: floralwhite;
+    border: 1px solid #141414;
+    color: black;
+}
+
+.button-register {
+    background-color: #ff0000;
+    border: 1px solid #e5e5e5;
+    color: floralwhite;
+}
+
+/* Hover de los botones */
+
+.button-login:hover {
+    cursor: pointer;
+    background-color: #24252a;
+    color: floralwhite;
+}
+
+.button-register:hover {
+    cursor: pointer;
+    background-color: #24252a;
+    color: #fff;
+}
