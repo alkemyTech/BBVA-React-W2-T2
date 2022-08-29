@@ -8,8 +8,8 @@ import '../FormStyles.css';
 
 function SlidesForm () {
 
-    let { id } = useParams();
-    //let id = 1413; // para probar la edicion de formulario
+    //let { id } = useParams();
+    let id = 1413; // para probar la edicion de formulario
     const [formSubmited, setFormSubmited] = useState(false);
     const [errors, setErrors] = useState({});
     const [initialValues, setInitialValues] = useState({
@@ -129,7 +129,7 @@ function SlidesForm () {
                 
                 <p className="error">{ errors.image }</p>
                 <br />             
-                { initialValues.image && <img scr={ initialValues.image } className="myImg" alt="imagen" /> }         
+                { initialValues.image && <img src={ initialValues.image } className="myImg" alt="imagen" /> }         
             </div>
             <button className="submit-btn" type="submit">Enviar</button>
 
