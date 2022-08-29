@@ -13,7 +13,7 @@ const Get = async (url) => {
   let urlFinal = apiUrl + url;
 
   return await axios
-    .get(urlFinal, config)
+    .get(urlFinal)
     .then((res) => res.data.data)
     .catch((err) => err);
 };
@@ -22,7 +22,7 @@ const Delete = async (url) => {
   let urlFinal = apiUrl + url;
 
   try {
-    return await axios.delete(urlFinal, config);
+    return await axios.delete(urlFinal);
   } catch (error) {
     return error;
   }
@@ -32,7 +32,7 @@ const Put = async (url, body) => {
   let urlFinal = apiUrl + url;
 
   return await axios
-    .put(urlFinal, body, config)
+    .put(urlFinal, body)
     .then((response) => response.data)
     .catch((error) => error);
 };
@@ -40,7 +40,7 @@ const Put = async (url, body) => {
 const Post = async (url, body) => {
   let urlFinal = apiUrl + url;
   return await axios
-    .post(urlFinal, body, config)
+    .post(urlFinal, body)
     .then((res) => res.data)
     .catch((err) => err);
 };
