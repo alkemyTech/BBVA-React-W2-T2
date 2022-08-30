@@ -5,14 +5,14 @@ import  ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import apiPrivate from '../../Services/privateApiService'; 
 import '../FormStyles.css';
 import validator from 'validator';
+import swAlert from 'sweetalert'
 
 function OrganizationEditForm(){
 
-    const [initialValues, setInitialValues] = useState({});
-    const [formSubmited, setFormSubmited] = useState(false);
+    const [initialValues, setInitialValues] = useState({});    
     const [errors, setErrors] = useState({});
     //let { id } = useParams();
-    let id = 1; // hardcodeado para practicar
+    let id = 1; // hardcodeado para practica
     
     useEffect(() =>{
         const getData = async () =>{
@@ -60,42 +60,50 @@ function OrganizationEditForm(){
     }
 
     const validateFields = () => {
-        
         if(initialValues.name === ''){
             setErrors({...errors, name:"El campo 'Nombre' no puede estar vacio"});
             return false;
+        }else{
+            errors.name = " "; // No funciona el setErrors, por eso lo asigno con el operador =               
         }        
+        
         if(initialValues.logo === ''){
             setErrors({...errors, logo: "Debe incluir una imagen para el logo"});
             return false;
         }else if(!validateExtension(initialValues.logo)){
             setErrors({...errors, logo: "Formato de imagen NO valido"})
             return false;
-        }
+        }else{errors.logo =''} 
+        
         if(initialValues.short_description === ''){
             setErrors({...errors, short_description:"Debe incluir una pequeña descripcion"});
             return false;            
-        }        
+        }else{errors.short_description = ''}         
+        
         if(initialValues.long_description === ''){
             setErrors({...errors, long_description:"Debe incluir una descripcion"});
             return false;            
-        }
+        }else{errors.long_description = ''} 
+        
         if(!validateURL(initialValues.facebook_url) ){            
             setErrors({...errors, facebook_url:"URL de Facebook no valida"});
             return false;            
-        }
+        }else{errors.facebook_url = ''} 
+       
         if(!validateURL(initialValues.linkedin_url)){
             setErrors({...errors, linkedin_url:"URL de Linkedin no valida"});
             return false;            
-        }
+        }else{errors.linkedin_url = ''} 
+        
         if(!validateURL(initialValues.instagram_url)){
             setErrors({...errors, instagram_url:"URL de Instagram no valida"});
             return false;            
-        }
+        }else{errors.instagram_url = ''} 
+        
         if(!validateURL(initialValues.twitter_url)){
             setErrors({...errors, twitter_url:"URL de Twitter no valida"});
             return false;            
-        }
+        }else{errors.twitter_url = ''} 
        
         return true;
     };
@@ -105,21 +113,23 @@ function OrganizationEditForm(){
         
         if(validateFields()){                       
                 apiPrivate.Put(`organization/${id}`, initialValues);
-                console.log("Formulario editado");
-                setFormSubmited(true);
-                setTimeout(() => setFormSubmited(false), 5000); 
+                console.log("Formulario editado");                
+                swAlert("¡Formulario editado exitosamente!", "");                 
                 console.log(initialValues);
         }                   
     }
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
+            <div className="form-title">
+                <h3>ACTUALIZACION DE DATOS DE ORGANIZACION</h3>
+            </div>
             <label className="label" htmlFor="name">Nombre</label>
             <input className="input-field" type="text" name="name" value={ initialValues.name } onChange={handleChange} placeholder="Nombre"></input>
             {errors.name && <div> <p className="error">{ errors.name }</p> </div> }
             
             <label className="label" htmlFor="name">Logo</label>
-            <input type="file" accept="image/png, image/jpeg" name="logo_file" value="" onChange={ handleChange } />            
+            <input type="file" accept="image/png, image/jpeg" name="logo_file" value="" onChange={ handleChange }></input>            
             <input type="text" className="input-field" name="logo" value={ initialValues.logo } onChange={ handleChange } placeholder="imagen logo"></input>
             {errors.logo && <div> <p className="error">{ errors.logo }</p> </div> }
 
@@ -167,9 +177,7 @@ function OrganizationEditForm(){
            <input className="input-field" type="text" name="twitter_url" value={initialValues.twitter_url} onChange={handleChange} placeholder="www.twitter.com"></input>
            {errors.twitter_url && <p className="error">{ errors.twitter_url }</p> }
             
-            <button className="submit-btn" type="submit">Enviar</button>
-
-            {formSubmited && <p className="success">Formulario modificado exitosamente!</p>}
+            <button className="submit-btn" type="submit">Enviar</button>           
         </form>
     );
 }

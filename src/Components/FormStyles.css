@@ -55,3 +55,9 @@
     color: black;
     font-weight: bold;   
 }
+
+.form-title{
+    display: flex;
+    justify-content: center;     
+}
+

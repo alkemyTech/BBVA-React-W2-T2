@@ -58,17 +58,17 @@ function SlidesForm () {
         if(initialValues.name === '' || initialValues.name.length < 4 ){
             setErrors({...errors, name:"El campo 'Titulo' debe contener al menos 4 caracteres"});
             return false;
-        }else{setErrors({...errors, name:""})}
+        }else{errors.name = ""}
         
         if(initialValues.description === ''){
             setErrors({...errors, description:"Debe incluir una 'Descripcion'"});
             return false;            
-        }else{setErrors({...errors, description:""})}
+        }else{errors.description = ""}
         
         if(initialValues.image === ''){
             setErrors({...errors, image: "Debe incluir una imagen"});
             return false;
-        }else{setErrors({...errors, image: ""})}
+        }else{errors.image = ""}
        
         return true;
     };
