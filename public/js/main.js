@@ -390,7 +390,7 @@ function  readURL6(input,thumbimage) {
 	        navigationText: ['<span class="ion-ios-arrow-back"></span>', '<span class="ion-ios-arrow-forward"></span>'],
 	        loop:true,
 			autoplay:true,
-			autoplayTimeout:3000,
+			autoplayTimeout:,
    			autoplayHoverPause:true,
 	        singleItem: true,
 	        afterInit: makePages,

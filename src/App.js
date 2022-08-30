@@ -44,7 +44,7 @@ function App() {
           <Route path="/register-form" component={ RegisterForm } />
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } /> 
         </Switch>
-        <Footer />
+        <Footer/>
       </BrowserRouter>
     {/*
     <div className="App">
