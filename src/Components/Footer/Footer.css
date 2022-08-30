@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mulish:wght@300&family=Poppins:wght@300&display=swap');
+
+/*  estilos generales para el contenedor */
+
+.footer-container {
+    overflow: hidden;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #C0C0C0;
+}
+
+.logo-container-img {
+    margin: 8px 40px 8px 40px;
+}
+
+.list-container-footer-li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.logo-container-footer {
+    margin-top: 41.95px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.name-logo {
+    font-family: 'Poppins', sans-serif;
+}
+
+.list-container-footer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 15px;
+    line-height: 19px;
+
+}
+
+.link-footer-public {
+    text-decoration: none;
+    color: #000;
+
+}
+
+
+/* Logo del header */
+.logo-header {
+    padding-left: 2em;
+}
+
+.container-figures {
+    display: flex;
+}
+
+.triangle-logo {
+    height: 0;
+    width: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 27px solid #ff0000;
+}
+
+.square-logo {
+    width: 27.79px;
+    height: 27.79px;
+    background: #faff00;
+}
+
+.circle-logo {
+    width: 27.79px;
+    height: 27.79px;
+    border-radius: 50%;
+    background: #0038ff;
+}
+
+/* letras del logo */
+.name-logo {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/* redes sociales */
+
+.socialmedia-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.socialmedia-container img {
+    width: 44px;
+    height: 44px;
+}
+
+.socialmedia-container-a {
+    margin: 0 1rem;
+    text-decoration: none;
+}
+
+
+/* Parte final de footer */
+.copyright-container-p {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -0.01rem;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.copyright-container-footer {
+    margin-bottom: 80px;
+}
+
+/* Raya divisoria */
+.footer-container-hr {
+    padding: 1px 0;
+    width: 100%;
+    margin: 1rem 0;
+    background-color: #000;
+    border: none;
+}

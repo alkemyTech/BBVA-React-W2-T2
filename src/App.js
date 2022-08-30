@@ -15,9 +15,9 @@ import ProjectsForm from './Components/Projects/ProjectsForm';
 import About from './Components/About/About'
 import Login from './Components/Login/Login';
 import RegisterForm from './Components/Auth/RegisterForm';
+import Footer from './Components/Footer/Footer';
 import OrganizationEditForm from './Components/Organization/OrganizationEditForm';
 import Header from './Components/Header/Header';
-
 
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
           <Route path="/register-form" component={ RegisterForm } />
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } /> 
         </Switch>
+        <Footer />
       </BrowserRouter>
     {/*
     <div className="App">
