@@ -15,6 +15,7 @@ import ProjectsForm from './Components/Projects/ProjectsForm';
 import About from './Components/About/About'
 import Login from './Components/Login/Login';
 import RegisterForm from './Components/Auth/RegisterForm';
+import Footer from './Components/Footer/Footer';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path="/toys-campaign" component={ToysCampaign} /> 
           <Route path="/register-form" component={ RegisterForm } /> 
         </Switch>
+        <Footer />
       </BrowserRouter>
     {/*
     <div className="App">
