@@ -9,11 +9,9 @@ const About = () => {
 
     const responseData = async() => {
         const endPoint = 'organization'
-        await  apiPublica.Get(endPoint)
-        .then( (res) =>{       
-             setAbout(res.data.data.long_description)
-        }) 
-    }
+       let data = await  apiPublica.Get(endPoint)
+             setAbout(data.long_description)
+        }
 
     useEffect(() => {
         responseData()

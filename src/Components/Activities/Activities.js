@@ -4,7 +4,7 @@ import apiPrivate from "../../Services/privateApiService";
 import "./Activities.css";
 
 function Activities() {
-    const [setInitialValues] = useState({
+    const [initialValues ,setInitialValues] = useState({
       name: "",
       description: "",
       image: "",
@@ -14,7 +14,6 @@ function Activities() {
       const endPoint = "activities";
       let activitiesList = await apiPrivate.Get(endPoint);
       setInitialValues(activitiesList);
-      console.log(activitiesList);
     };
 
     useEffect(() => {
