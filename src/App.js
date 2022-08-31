@@ -18,7 +18,6 @@ import Activities from './Components/Activities/Activities';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import OrganizationEditForm from './Components/Organization/OrganizationEditForm';
 import Header from './Components/Header/Header';
-import EditHome from './Components/Organization/EditHome';
 
 
 
@@ -47,7 +46,6 @@ function App() {
           <Route path="/toys-campaign" component={ToysCampaign} /> 
           <Route path="/register-form" component={ RegisterForm } />
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } /> 
-          <Route path="/backoffice/Organization" component={ EditHome } /> 
         </Switch>
       </BrowserRouter>
     {/*
