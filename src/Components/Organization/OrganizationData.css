@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;     
+}
+
+.right {
+    width: 50%;    
+    display: flex;
+    justify-content: center;
+}
+
+.right img {
+    width: 100%;
+}
+
+.left {
+    width: 50%;
+    background-color: rgb(172, 211, 243);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px;
+}
+
+.left p{    
+    font-size: 25px;    
+}

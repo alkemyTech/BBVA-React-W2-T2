@@ -19,8 +19,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import OrganizationEditForm from './Components/Organization/OrganizationEditForm';
 import EditHome from './Components/Organization/EditHome';
 import Header from './Components/Header/Header';
+import OrganizationData from './Components/Organization/OrganizationData';
 import Footer from './Components/Footer/Footer';
-
 
 
 
@@ -46,6 +46,8 @@ function App() {
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} /> 
+          <Route path="/register-form" component={ RegisterForm } />
+          <Route path="/backoffice/organization" component={ OrganizationData } /> 
           <Route path="/register-form" component={ RegisterForm } /> 
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } />
           <Route path="/backoffice/Home/Edit" component={ EditHome } />
