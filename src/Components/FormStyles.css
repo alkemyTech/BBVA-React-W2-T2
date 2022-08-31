@@ -40,3 +40,9 @@
 	padding-top: 10px;
 	color: #d60ce9;
 }
+
+.sendSuccessfully{
+    text-align: center;
+    font-size: 18px;
+    color: green;
+}

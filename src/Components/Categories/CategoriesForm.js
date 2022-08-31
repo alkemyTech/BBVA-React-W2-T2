@@ -4,10 +4,12 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import apiPrivate from '../../Services/privateApiService';
 import '../FormStyles.css';
 import swAlert from 'sweetalert';
+import Alert from '../Alert/Alert'//cambiar a este todos los swAlert
 import { useParams } from 'react-router-dom';
 
 const CategoriesForm = () => {
     
+     //let token = sessionStorage.getItem('token');
     //console.log(props);   
     
     const [initialValues, setInitialValues] = useState({
@@ -17,10 +19,6 @@ const CategoriesForm = () => {
     });
 
     const { id } = useParams();
-    
-    /* const category = initialValues.name;
-    const descrip = initialValues.description;
-    const imageCat = initialValues.image; */
     
     //if we have id, we took it and put the information in the inputs.
     const responseData = async() => {
@@ -116,7 +114,6 @@ const CategoriesForm = () => {
 
                 />
             </div>
-            {/* <input className="input-field" type="text" name="description" value={initialValues.description} onChange={handleChange} placeholder="Write some description"></input> */}
             <input name="image" type="file" accept="image/png, image/jpeg" value={initialValues.image} onChange={handleChange} required />
             <button className="submit-btn" type="submit">Send</button>
         </form>
