@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import  ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import apiPrivate from '../../Services/privateApiService'; 
@@ -10,10 +9,11 @@ import swAlert from 'sweetalert'
 function OrganizationEditForm(){
 
     const [initialValues, setInitialValues] = useState({});    
-    const [errors, setErrors] = useState({});
-    //let { id } = useParams();
-    let id = 1; // hardcodeado para practica
-    
+    const [errors, setErrors] = useState({});    
+    //let id = 1; // hardcodeado para practica
+    let query = new URLSearchParams(window.location.search);
+    let id = query.get('id');
+
     useEffect(() =>{
         const getData = async () =>{
             let orgData = await apiPrivate.Get(`organization/${id}`);

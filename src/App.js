@@ -18,6 +18,7 @@ import RegisterForm from './Components/Auth/RegisterForm';
 import Footer from './Components/Footer/Footer';
 import OrganizationEditForm from './Components/Organization/OrganizationEditForm';
 import Header from './Components/Header/Header';
+import OrganizationData from './Components/Organization/OrganizationData';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/toys-campaign" component={ToysCampaign} /> 
           <Route path="/register-form" component={ RegisterForm } />
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } /> 
+          <Route path="/backoffice/organization" component={ OrganizationData } /> 
         </Switch>
         <Footer/>
       </BrowserRouter>
