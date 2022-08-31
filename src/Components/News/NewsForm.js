@@ -35,10 +35,9 @@ const NewsForm = () => {
         }
         //obteniendo las categorias desde el endpoint
         const endPoint = 'categories'
-        await  apiPrivate.Get(endPoint)
-        .then( (res) =>{                      
-            setCategories(res.data.data)
-        })       
+        let categoriesList =  await  apiPrivate.Get(endPoint)
+        setCategories(categoriesList)
+         
     }
 
     useEffect(() => {       
@@ -62,17 +61,6 @@ const NewsForm = () => {
         }
       }
 
-    const handleChange = (e) => {
-        if(e.target.name === 'name'){
-            setInitialValues({...initialValues, name: e.target.value})
-        } if(e.target.name === 'content'){
-            setInitialValues({...initialValues, content: e.target.value})        
-        } if(e.target.image === 'image'){
-            setInitialValues({...initialValues, image: e.target.value})
-        }if(e.target.name === 'category') {
-            setInitialValues({...initialValues, category: e.target.value})
-        }
-    }
 
   
     const resData = async () =>{
@@ -111,7 +99,7 @@ const NewsForm = () => {
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
-            <input className="input-field" type="text" name="name" value={initialValues.name || ''} onChange={handleChange}></input>            
+            <input className="input-field" type="text" name="name" value={initialValues.name || ''} onChange={(e)=> setInitialValues({...initialValues, name: e.target.value})}></input>            
         <div className='input-field img-input-news'>
             <img className="news-image" src={initialValues.image} alt="NewsImagen" />
             <input className="img-select" type="file" name="image" placeholder="News-Image" />        
