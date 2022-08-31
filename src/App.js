@@ -15,12 +15,16 @@ import ProjectsForm from './Components/Projects/ProjectsForm';
 import About from './Components/About/About'
 import Login from './Components/Login/Login';
 import RegisterForm from './Components/Auth/RegisterForm';
+import Footer from './Components/Footer/Footer';
+import OrganizationEditForm from './Components/Organization/OrganizationEditForm';
+import Header from './Components/Header/Header';
 
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Header />
         <Switch>
           {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
           <Route path="/login" component={Login} />
@@ -37,8 +41,10 @@ function App() {
           <Route path="/create-project" component={ProjectsForm} />
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} /> 
-          <Route path="/register-form" component={ RegisterForm } /> 
+          <Route path="/register-form" component={ RegisterForm } />
+          <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } /> 
         </Switch>
+        <Footer/>
       </BrowserRouter>
     {/*
     <div className="App">

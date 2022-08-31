@@ -42,14 +42,11 @@ const CategoriesForm = () => {
     const handleChange = (e) => {
         if(e.target.name === 'name'){
             setInitialValues({...initialValues, name: e.target.value})
-        /* } if(e.target.name === 'description'){
-            setInitialValues({...initialValues, description: e.target.data})
-            console.log("entro al if del description") */
         } if(e.target.name === 'image'){
             setInitialValues({...initialValues, image: e.target.value})
         }
     }
-
+    //if we have id, then we modify the category - if we don't have it, we create a new one.
     const resData = async () => {
         //const idHardCode = 2289
         if(id) {
@@ -71,6 +68,7 @@ const CategoriesForm = () => {
         const descrip = initialValues.description;
         const imageCat = e.target.image.value;
         
+        //validations
         if(category === "" || descrip === "" || imageCat === ""){
             swAlert("", "Faltan ingresar datos", "warning");
             return;
@@ -84,9 +82,11 @@ const CategoriesForm = () => {
         
     }
 
-   
-
     return (
+        
+        <>
+        {/*{ !token && <Navigate to="/" />}*/}
+
         <form className="form-container" onSubmit={handleSubmit}>
             <input className="input-field" type="text" name="name" value={initialValues.name} onChange={handleChange} placeholder="Categoría"></input>
             
@@ -117,6 +117,7 @@ const CategoriesForm = () => {
             <input name="image" type="file" accept="image/png, image/jpeg" value={initialValues.image} onChange={handleChange} required />
             <button className="submit-btn" type="submit">Send</button>
         </form>
+        </>
     );
 }
  
