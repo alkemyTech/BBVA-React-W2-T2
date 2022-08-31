@@ -9,7 +9,6 @@ import { useParams } from 'react-router-dom';
 const CategoriesForm = () => {
     
      //let token = sessionStorage.getItem('token');
-    //console.log(props);   
     
     const [initialValues, setInitialValues] = useState({
         name: '',
