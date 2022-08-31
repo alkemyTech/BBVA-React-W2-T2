@@ -6,23 +6,23 @@ const config = {
     }
 }
 
-const apiUrl = "https://ongapi.alkemy.org/api";
+const apiUrl = "https://ongapi.alkemy.org/api/";
 
-const Get = (url) => {
+const Get = async (url) => {
 
     let urlFinal = apiUrl + url;
 
-    axios.get(urlFinal)
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
+  return await axios.get(urlFinal)
+        .then(res => res.data.data)
+        .catch(err => err);
 }
 
-const Post = (url, body) =>{
+const Post = async (url, body) =>{
     let urlFinal = apiUrl + url;
     
-    axios.post(urlFinal, body)
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+   return await axios.post(urlFinal, body)
+    .then(res => res.data)
+    .catch(err => err);
 };
 
 

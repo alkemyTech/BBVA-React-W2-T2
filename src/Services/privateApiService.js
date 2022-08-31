@@ -1,10 +1,12 @@
 import axios from "axios";
+import getHeaderAuthorization from './getToken'
 
 const config = {
-  headers: {
-    Group: 54321,
-  },
+  headers: getHeaderAuthorization()
+  
 };
+
+
 const apiUrl = "https://ongapi.alkemy.org/api/";
 
 const Get = async (url) => {
