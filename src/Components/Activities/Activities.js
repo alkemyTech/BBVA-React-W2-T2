@@ -1,7 +1,5 @@
-// import axios from 'axios';
-import React from "react";
 import Carousel from "react-bootstrap/Carousel";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import apiPrivate from "../../Services/privateApiService";
 import "./Activities.css";
 

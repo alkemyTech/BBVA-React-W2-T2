@@ -4,27 +4,6 @@ body {
   height: 100%;
 }
 
-.navbar {
-  position: absolute;
-  font-size: small;
-}
-
-ul {
-  text-align: left;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  display: inline;
-  padding: 10px;
-}
-
-.logo {
-  width: 90px;
-  height: 60px;
-}
-
 a {
   text-decoration: none;
   font-family: "Inconsolata", monospace;
