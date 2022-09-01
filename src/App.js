@@ -21,6 +21,7 @@ import EditHome from './Components/Organization/EditHome';
 import Header from './Components/Header/Header';
 import OrganizationData from './Components/Organization/OrganizationData';
 import Footer from './Components/Footer/Footer';
+import Index from './Components/Home/Index'
 
 
 
@@ -30,7 +31,7 @@ function App() {
       <BrowserRouter>
       <Header/>
         <Switch>
-          {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
+           <Route path="/" exact component={Index} />  
           <Route path="/login" component={Login} />
           <Route path="/us" component={About } /> 
           <Route path="/create-activity" component={ActivitiesForm} />
