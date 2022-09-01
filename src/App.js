@@ -21,6 +21,8 @@ import EditHome from './Components/Organization/EditHome';
 import Header from './Components/Header/Header';
 import OrganizationData from './Components/Organization/OrganizationData';
 import Footer from './Components/Footer/Footer';
+import Donacion from './Components/Donations/Donacion';
+import Gracias from './Components/Donations/Gracias';
 
 
 
@@ -51,6 +53,8 @@ function App() {
           <Route path="/register-form" component={ RegisterForm } /> 
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } />
           <Route path="/backoffice/Home/Edit" component={ EditHome } />
+          <Route path="/donar" component={ Donacion } />
+          <Route path="/gracias" component={ Gracias } />
         </Switch>
         <Footer/>
       </BrowserRouter>
