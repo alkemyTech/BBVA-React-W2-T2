@@ -30,7 +30,7 @@ a {
   width: 100%;
   height: 72px;
   text-align: center;
-  top: 88px;
+  top: 50px;
   padding: 0px 0px 0px 25px;
 }
 
@@ -50,6 +50,11 @@ a {
 .paragraph {
   width: 100%;
   height: auto;
+}
+
+.text {
+  width: 100%;
+  height: 200px;
 }
 
 .text p {

@@ -13,9 +13,7 @@ const ActivitiesForm = () => {
 
     const responseData = async() => {
         if(!initialValues.name && !initialValues.description && !initialValues.image) {
-            console.log('responseData')
             const endPointPost = '/activities/create'
-            console.log(initialValues)
             await apiPrivate.Post(endPointPost, initialValues)
                 .then( (res) => {
                     console.log(res.data)
@@ -43,7 +41,6 @@ const ActivitiesForm = () => {
             setInitialValues({ ...initialValues, description: e.target.value });
         } if (e.target.name === 'image') {
             setInitialValues({ ...initialValues, image: e.target.value });
-
         }
     }
 
