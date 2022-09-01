@@ -2,7 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import React, { useState, useEffect } from "react";
 import apiPrivate from "../../Services/privateApiService";
 import "./Activities.css";
-import parse from "html-react-parser";
+//import parse from "html-react-parser";
 
 
 function Activities() {
@@ -18,8 +18,8 @@ function Activities() {
       if(activitiesList[0] != null) {
         setInitialValues({name:  activitiesList[0].name, description:  activitiesList[0].description });
       } 
-      console.log(parse("ACTIVITIES"))
-      console.log(parse(initialValues.description))
+      //console.log(parse("ACTIVITIES"))
+      //console.log(parse(initialValues.description))
     };
 
     useEffect(() => {
