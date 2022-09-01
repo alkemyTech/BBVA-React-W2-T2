@@ -27,6 +27,7 @@ import Gracias from './Components/Donations/Gracias';
 import Contact from './Components/Contact/Contact';
 import FrontTestimonial from './Components/FrontTestimonial/FrontTestimonial';
 
+import NewsUserView from './Components/News/NewsUserView/NewsUserView';
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
           <Route path="/backoffice/Home/Edit" component={ EditHome } />
           <Route path="/donar" component={ Donacion } />
           <Route path="/gracias" component={ Gracias } />
+          <Route path="/news-user-view" component={ NewsUserView } />
         </Switch>
         <Footer/>
       </BrowserRouter>
