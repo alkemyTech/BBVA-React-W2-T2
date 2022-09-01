@@ -24,6 +24,9 @@ import Footer from './Components/Footer/Footer';
 import Index from './Components/Home/Index'
 import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
+import Contact from './Components/Contact/Contact';
+import FrontTestimonial from './Components/FrontTestimonial/FrontTestimonial';
+
 import NewsUserView from './Components/News/NewsUserView/NewsUserView';
 
 function App() {
@@ -35,6 +38,8 @@ function App() {
           <Route path="/" exact component={Index} />  
           <Route path="/login" component={Login} />
           <Route path="/us" component={About } /> 
+          <Route path="/contact" component={Contact} />
+          <Route path="/testimonials" component={FrontTestimonial} />
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/activities" component={Activities} />
           <Route path="/create-category" component={CategoriesForm} />

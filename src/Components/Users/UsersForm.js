@@ -1,37 +1,165 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../FormStyles.css';
+import { useParams } from 'react-router-dom';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+//import RegisterForm from '../Auth/RegisterForm';
+import apiPrivate from '../../Services/privateApiService';
+import Alert from '../Alert/Alert'
 
 const UserForm = () => {
-    const [initialValues, setInitialValues] = useState({
-        name: '',
-        email: '',
-        roleId: ''
-    })
+    const[sendForm, setSendForm] = useState(false);
+    let { id } = useParams();
 
-    const handleChange = (e) => {
-        if(e.target.name === 'name'){
-            setInitialValues({...initialValues, name: e.target.value})
-        } if(e.target.name === 'email'){
-            setInitialValues({...initialValues, email: e.target.value})
+     //if we have id, we took it and put the information in the inputs.
+    const responseData = async() => {
+        if (id) {
+            console.log(id)
+            const endPoint = `users/${id}`;
+            const res = await apiPrivate.Get(endPoint);
+            const { name, email, password, role_id, profile_image } = await res.data.id;
+            setSendForm({
+                name, email, password, role_id, profile_image
+            });
         }
+
     }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(initialValues);
-    }
+    useEffect(() => {    
+        responseData ()
+    }, []);
 
     return (
-        <form className="form-container" onSubmit={handleSubmit}>
-            <input className="input-field" type="text" name="name" value={initialValues.name || ''} onChange={handleChange} placeholder="Name"></input>
-            <input className="input-field" type="text" name="email" value={initialValues.description || ''} onChange={handleChange} placeholder="Email"></input>
-            <select className="input-field" value={initialValues.roleId || ''} onChange={e => setInitialValues({...initialValues, roleId: e.target.value})}>
-                <option value="" disabled >Select the role</option>
-                <option value="1">Admin</option>
-                <option value="2">User</option>
-            </select>
-            <button className="submit-btn" type="submit">Send</button>
-        </form>
+        <>
+        <Formik
+            initialValues={{
+                name:'',
+                email:'',
+                password:'',
+                role_id:'',
+                profile_image:''
+            }}
+            
+            validate={(newValues) => {
+                let regexEmail = /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
+                let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{7,15}[^'\s]/;
+                let wrong ={};
+
+                //Validating name
+                if (!newValues.name) {
+                    wrong.name = "Debe ingresar un Nombre de Usuario"
+                } else if (newValues.name.length < 4){
+                    wrong.name = "El Nombre de Usuario debe tener al menos 4 caracteres."
+                }
+
+                //Validating email
+                if(!newValues.email){
+                    wrong.email = "Debe ingresar una Dirección de Correo Electrónico"
+                } else if (!regexEmail.test(newValues.email)) {
+                    wrong.email ="Dirección de correo inválida"
+                }
+
+                //Validating password
+                if(!newValues.password){
+                    wrong.password = "Debe ingresar una Password"
+                } else if (!regexPassword.test(newValues.password)) {
+                    wrong.password ="Password incorrecta"
+                }
+
+                //Validating role_id
+                if(newValues.role_id === ""){
+                    wrong.role_id = "Debe ingresar un Rol"
+                }
+
+                //Validating profile_image
+                if(newValues.profile_image === ""){
+                    wrong.profile_image = "Debe cargar una Imagen"
+                } //else if (newValues.profile_image !== ".jpeg") {
+                  //  wrong.profile_image ="La imagen debe tener una extensión jpg"
+                //}
+
+                return wrong;
+            }}
+
+            onSubmit={(newValues, {resetForm}) => { //me crea el objeto con todos los valores cargados//desde acá me conecto a la API
+                resetForm();
+                console.log(newValues); //puedo usar newValues.name, por ejemplo. 
+                setSendForm(true);
+                setTimeout(() => setSendForm(false), 1000);
+
+                const resData = async () => {
+                    if(id) {
+                        const endPoint = `users/${id}`;
+                        apiPrivate.Put(endPoint, newValues)
+                    } else {
+                        const endPoint = `users`;
+                        apiPrivate.Post(endPoint, newValues)
+                    }
+                }
+                resData();
+            }}         
+        >
+            {( {errors} ) => (
+                <Form className='form-container'>
+
+                    <Field 
+                    className='input-field' 
+                    type="text" 
+                    id='name' 
+                    name='name' 
+                    placeholder='Nombre' 
+                    />
+                    <ErrorMessage name='name' component={() => (
+                        <div className='error'>{errors.name}</div>
+                    )} />
+                    
+                    <Field 
+                    className='input-field' 
+                    type='email' 
+                    id='email' 
+                    name='email' 
+                    placeholder='Email' 
+                    />
+                    <ErrorMessage name='email' component={() => (
+                        <div className='error'>{errors.email}</div>
+                    )} />
+
+                    <Field 
+                    className='input-field' 
+                    type='password' 
+                    id='password' 
+                    name='password' 
+                    placeholder='Password' 
+                    />
+                    <ErrorMessage name='password' component={() => (
+                        <div className='error'>{errors.password}</div>
+                    )} />
+                    
+                    <Field name='role_id' as ="select" className='input-field' id='role_id'>
+                        <option value="" disabled > Seleccione el rol</option>
+                        <option value="1">Admin</option>
+                        <option value="2">User</option>
+                    </Field>
+                    <ErrorMessage name='role_id' component={() => (
+                        <div className='error'>{errors.role_id}</div>
+                    )} />
+
+                    <Field 
+                    type="file" 
+                    accept="image/png, image/jpeg" 
+                    id='profile_image' 
+                    name='profile_image' 
+                    
+                    />
+                    <ErrorMessage name='profile_image' component={() => (
+                        <div className='error'>{errors.profile_image}</div>
+                    )} />
+
+                    <button className='submit-btn' type='submit'>Send</button>
+                    {sendForm && <p className='sendSuccessfully'>¡Formulario enviado con éxito!</p>}
+                </Form>
+            )}
+        </Formik>
+        </>
     );
 }
  

@@ -4,11 +4,13 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import apiPrivate from '../../Services/privateApiService';
 import '../FormStyles.css';
 import swAlert from 'sweetalert';
+import Alert from '../Alert/Alert'//cambiar a este todos los swAlert
 import { useParams } from 'react-router-dom';
 
 const CategoriesForm = () => {
     
      //let token = sessionStorage.getItem('token');
+    //console.log(props);   
     
     const [initialValues, setInitialValues] = useState({
         name: '',
@@ -112,7 +114,6 @@ const CategoriesForm = () => {
 
                 />
             </div>
-            {/* <input className="input-field" type="text" name="description" value={initialValues.description} onChange={handleChange} placeholder="Write some description"></input> */}
             <input name="image" type="file" accept="image/png, image/jpeg" value={initialValues.image} onChange={handleChange} required />
             <button className="submit-btn" type="submit">Send</button>
         </form>
