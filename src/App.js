@@ -24,6 +24,7 @@ import Footer from './Components/Footer/Footer';
 import Index from './Components/Home/Index'
 import Donacion from './Components/Donations/Donacion';
 import Gracias from './Components/Donations/Gracias';
+import NewsUserView from './Components/News/NewsUserView/NewsUserView';
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
           <Route path="/backoffice/Home/Edit" component={ EditHome } />
           <Route path="/donar" component={ Donacion } />
           <Route path="/gracias" component={ Gracias } />
+          <Route path="/news-user-view" component={ NewsUserView } />
         </Switch>
         <Footer/>
       </BrowserRouter>
