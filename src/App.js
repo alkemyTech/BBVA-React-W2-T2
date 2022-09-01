@@ -22,8 +22,8 @@ import Header from './Components/Header/Header';
 import OrganizationData from './Components/Organization/OrganizationData';
 import Footer from './Components/Footer/Footer';
 import Index from './Components/Home/Index'
-
-
+import Donacion from './Components/Donations/Donacion';
+import Gracias from './Components/Donations/Gracias';
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
       <BrowserRouter>
       <Header/>
         <Switch>
-           <Route path="/" exact component={Index} />  
+          <Route path="/" exact component={Index} />  
           <Route path="/login" component={Login} />
           <Route path="/us" component={About } /> 
           <Route path="/create-activity" component={ActivitiesForm} />
@@ -52,13 +52,11 @@ function App() {
           <Route path="/register-form" component={ RegisterForm } /> 
           <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } />
           <Route path="/backoffice/Home/Edit" component={ EditHome } />
+          <Route path="/donar" component={ Donacion } />
+          <Route path="/gracias" component={ Gracias } />
         </Switch>
         <Footer/>
       </BrowserRouter>
-    {/*
-    <div className="App">
-    </div>
-  */}
     </>
   );
 }
