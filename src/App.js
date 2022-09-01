@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import ActivitiesForm from './Components/Activities/ActivitiesForm';
@@ -15,21 +14,28 @@ import ProjectsForm from './Components/Projects/ProjectsForm';
 import About from './Components/About/About'
 import Login from './Components/Login/Login';
 import RegisterForm from './Components/Auth/RegisterForm';
-import Footer from './Components/Footer/Footer';
+import Activities from './Components/Activities/Activities';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import OrganizationEditForm from './Components/Organization/OrganizationEditForm';
+import EditHome from './Components/Organization/EditHome';
 import Header from './Components/Header/Header';
-
+import OrganizationData from './Components/Organization/OrganizationData';
+import Footer from './Components/Footer/Footer';
+import Index from './Components/Home/Index'
+import Donacion from './Components/Donations/Donacion';
+import Gracias from './Components/Donations/Gracias';
 
 function App() {
   return (
     <>
       <BrowserRouter>
-      <Header />
+      <Header/>
         <Switch>
-          {/* <Route path="/" exact component={} />           Esta ruta debe ser para el Home */}
+          <Route path="/" exact component={Index} />  
           <Route path="/login" component={Login} />
           <Route path="/us" component={About } /> 
           <Route path="/create-activity" component={ActivitiesForm} />
+          <Route path="/activities" component={Activities} />
           <Route path="/create-category" component={CategoriesForm} />
           <Route path="/news" component={NewsForm} />
           <Route path="/news/:id" component={NewsForm}/>
@@ -42,14 +48,15 @@ function App() {
           <Route path="/school-campaign" component={SchoolCampaign} />
           <Route path="/toys-campaign" component={ToysCampaign} /> 
           <Route path="/register-form" component={ RegisterForm } />
-          <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } /> 
+          <Route path="/backoffice/organization" component={ OrganizationData } /> 
+          <Route path="/register-form" component={ RegisterForm } /> 
+          <Route path="/backoffice/organization/edit" component={ OrganizationEditForm } />
+          <Route path="/backoffice/Home/Edit" component={ EditHome } />
+          <Route path="/donar" component={ Donacion } />
+          <Route path="/gracias" component={ Gracias } />
         </Switch>
         <Footer/>
       </BrowserRouter>
-    {/*
-    <div className="App">
-    </div>
-  */}
     </>
   );
 }

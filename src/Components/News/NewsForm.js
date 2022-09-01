@@ -35,9 +35,9 @@ const NewsForm = () => {
         }
         //obteniendo las categorias desde el endpoint
         const endPoint = 'categories'
-       let categoryArray =  await apiPrivate.Get(endPoint)
-       setCategories(categoryArray)
-             
+        let categoriesList =  await  apiPrivate.Get(endPoint)
+        setCategories(categoriesList)
+         
     }
 
     useEffect(() => {       
@@ -60,6 +60,8 @@ const NewsForm = () => {
             return true;           
         }
       }
+
+
   
     const resData = async () =>{
         if (id) {
@@ -97,10 +99,10 @@ const NewsForm = () => {
 
     return (
         <form className="form-container" onSubmit={handleSubmit}>
-            <input className="input-field" type="text" name="name" value={initialValues.name || ''} onChange={e => setInitialValues({...initialValues, name: e.target.value})}></input>            
+            <input className="input-field" type="text" name="name" value={initialValues.name || ''} onChange={(e)=> setInitialValues({...initialValues, name: e.target.value})}></input>            
         <div className='input-field img-input-news'>
             <img className="news-image" src={initialValues.image} alt="NewsImagen" />
-            <input className="img-select" type="file" name="image" placeholder="News-Image"  onChange={e=>setInitialValues({...initialValues, image: e.target.value})} />        
+            <input className="img-select" type="file" name="image" placeholder="News-Image" />        
         </div>
             <div>
                 <CKEditor
@@ -117,7 +119,7 @@ const NewsForm = () => {
                <option value="" disabled>Select category</option>
                {categories.map((categorys) =>{                        
                     return(
-                        <option value={categorys.id} key={categorys.id} >{categorys.description}</option>
+                        <option value={categorys.id} key={categorys.id}>{categorys.description}</option>
                     )
                })}
                
