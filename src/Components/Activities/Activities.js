@@ -2,6 +2,8 @@ import Carousel from "react-bootstrap/Carousel";
 import React, { useState, useEffect } from "react";
 import apiPrivate from "../../Services/privateApiService";
 import "./Activities.css";
+import parse from "html-react-parser";
+
 
 function Activities() {
     const [initialValues ,setInitialValues] = useState({
@@ -13,13 +15,18 @@ function Activities() {
     const resData = async () => {
       const endPoint = "activities";
       let activitiesList = await apiPrivate.Get(endPoint);
-      setInitialValues(activitiesList);
+      if(activitiesList[0] != null) {
+        setInitialValues({name:  activitiesList[0].name, description:  activitiesList[0].description });
+      } 
+      console.log(parse("ACTIVITIES"))
+      console.log(parse(initialValues.description))
     };
 
     useEffect(() => {
        resData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+    
 
   return (
     <>
@@ -56,9 +63,11 @@ function Activities() {
         </div>
       </div>
       <div class='text'>
-        <h2>Nuestro trabajo</h2>
+        <div>
+        <h2>{initialValues.name}</h2>
         <div class='paragraph'></div>
-        <p>El rol de las Organizaciones No Gubernamentales (ONG) para la protección de los derechos humanos en el campo de las relaciones internacionales y su acción en las Naciones Unidas. En principio cabe definir a las ONGs que trabajan para proteger los derechos humanos como todo nucleamiento de personas que se dan cita y se organizan para un fin público (defensa de los derechos de la mujer, los niños, los trabajadores, la lucha contra la discriminación racial, étnica o socio-económica, o por promover las libertades fundamentales y combatir los flagelos de la tortura, la esclavitud, la guerra, etc.)</p>
+          <div dangerouslySetInnerHTML={{ __html: initialValues.description }}></div>
+          </div>
       </div>
     </>
   );
