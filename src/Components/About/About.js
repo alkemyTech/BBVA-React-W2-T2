@@ -5,6 +5,7 @@ import Image from "./login.png"
 
 const About = () => {
 
+    const [homeMembers, setHomeMembers] = useState([])
     const [ about, setAbout] = useState();
 
     const responseData = async() => {
@@ -13,12 +14,19 @@ const About = () => {
              setAbout(data.long_description)
         }
 
+    const resData = async () =>{
+          const endpoint = 'members'
+          let homeMembers = await apiPublica.Get(endpoint)        
+          setHomeMembers(homeMembers)          
+      }
+
     useEffect(() => {
         responseData()
+        resData()
     }, [])
 
 
-    console.log(about)
+   
     
 
   return (
@@ -31,7 +39,21 @@ const About = () => {
            <div className="container-image-about">
                 <img src={Image} className="about-img"/>
            </div>
-     </div>    
+     </div>  
+     <div className="cards-list-us"> 
+     {homeMembers.map((membersArray, index) => (
+     <div className="card 1" key={index}>
+          <div className="card_image"> 
+           <img src={membersArray.image} /> 
+          </div>
+         <div className="card_title title-white">
+           <p>{membersArray.name}</p>
+           <p className="description-members">{membersArray.description}</p>
+         </div>
+       </div>
+     ))}      
+        
+     </div>  
     </>
   )
 }
