@@ -9,11 +9,9 @@ import Alert from '../Alert/Alert'
 const UserForm = () => {
     const[sendForm, setSendForm] = useState(false);
     let { id } = useParams();
-    //idHardCode = 3537;
 
      //if we have id, we took it and put the information in the inputs.
     const responseData = async() => {
-    //idHardCode = 3537
         if (id) {
             console.log(id)
             const endPoint = `users/${id}`;
@@ -29,21 +27,6 @@ const UserForm = () => {
     useEffect(() => {    
         responseData ()
     }, []);
-
-    /* const resData = async () => {
-        //const idHardCode = 2289
-        if(id) {
-            const endPoint = `users/${id}`;
-            apiPrivate.Put(endPoint, newValues)
-            Alert("", "La categoría fue modificada con éxito!", "success")
-        } else {
-            const endPoint = `users`;
-            apiPrivate.Post(endPoint, newValues)
-            Alert("", "La categoría fue creada con éxito!", "success")
-        }
-    }
-
-    resData(); */
 
     return (
         <>
@@ -97,48 +80,26 @@ const UserForm = () => {
                 return wrong;
             }}
 
-            onSubmit={(newValues, {resetForm}) => { //me crea el objeto con todos los valores cargados
+            onSubmit={(newValues, {resetForm}) => { //me crea el objeto con todos los valores cargados//desde acá me conecto a la API
                 resetForm();
-                console.log(newValues); //puedo usar newValues.name, por ejemplo. //desde acá me conecto a la API
+                console.log(newValues); //puedo usar newValues.name, por ejemplo. 
                 setSendForm(true);
                 setTimeout(() => setSendForm(false), 1000);
 
-                /*  //if we have id, we took it and put the information in the inputs.
-                const responseData = async() => {
-                idHardCode = 3537
-                if (idHardCode) {
-                    console.log(idHardCode)
-                    const endPoint = `users/${idHardCode}`;
-                    const res = await apiPrivate.Get(endPoint);
-                    const { name, email, password, role_id, profile_image } = await res.data.idHardCode;
-                    setSendForm({
-                        name, email, password, role_id, profile_image
-                    });
-                }
-                responseData () */
-
                 const resData = async () => {
-                    //idHardCode = 3537
                     if(id) {
                         const endPoint = `users/${id}`;
                         apiPrivate.Put(endPoint, newValues)
-                        //Alert("", "El usuario fue modificado con éxito!", "success")
                     } else {
                         const endPoint = `users`;
                         apiPrivate.Post(endPoint, newValues)
-                        //Alert("", "El usuario fue creado con éxito!", "success")
                     }
                 }
-            
                 resData();
-        }
-            }
-            
+            }}         
         >
             {( {errors} ) => (
-             //{( {values, errors, touched, handleSubmit, handleChange, handleBlur} ) => (
                 <Form className='form-container'>
-                    {/* {console.log(errors)} */}
 
                     <Field 
                     className='input-field' 
