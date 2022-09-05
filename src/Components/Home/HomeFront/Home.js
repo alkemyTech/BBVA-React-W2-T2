@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import publicApi from '../../../Services/publicApiService'
 import { Link } from 'react-router-dom';
 import './Home.css'
+import HomeSlider from '../HomeSliders/HomeSlider';
 
 
 
@@ -41,7 +42,7 @@ const Home = () => {
             </div>       
 
             <div className='home-front-rigth'>
-              <img src={welcomeHi.logo} alt=".." />
+              <HomeSlider />
             
             </div>      
         
