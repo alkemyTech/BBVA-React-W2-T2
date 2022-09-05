@@ -43,8 +43,8 @@ function App() {
           <Route path="/create-activity" component={ActivitiesForm} />
           <Route path="/activities" component={Activities} />
           <Route path="/create-category" component={CategoriesForm} />
-          <Route path="/news" component={NewsForm} />
-          <Route path="/news/:id" component={NewsForm}/>
+          <Route path="/backoffice/news" component={NewsForm} />
+          <Route path="backoffice/news/:id" component={NewsForm}/>
           <Route path="/backoffice/create-slide" component={SlidesForm} />
           <Route path="/create-testimonials" component={TestimonialForm} />
           <Route path="/create-user" component={UserForm} />
@@ -60,7 +60,7 @@ function App() {
           <Route path="/backoffice/Home/Edit" component={ EditHome } />
           <Route path="/donar" component={ Donacion } />
           <Route path="/gracias" component={ Gracias } />
-          <Route path="/news-user-view" component={ NewsUserView } />
+          <Route path="/news" component={ NewsUserView } />
         </Switch>
         <Footer/>
       </BrowserRouter>
